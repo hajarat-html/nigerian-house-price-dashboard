@@ -689,7 +689,8 @@ elif page == "Geospatial Analysis":
         # Average Price by Top 10 Towns
         st.subheader("Average House Price by Top 10 Towns")
         avg_price_town_geo = data.groupby('town')['price'].mean().reset_index().sort_values(by='price', ascending=False).head(10)
-        fig_town_price_geo = px.bar(avg_town_price_geo, x='town', y='price',
+        # FIX IS ON THE NEXT LINE: Changed 'avg_town_price_geo' to 'avg_price_town_geo'
+        fig_town_price_geo = px.bar(avg_price_town_geo, x='town', y='price', # THIS LINE IS CORRECTED
                                     title='Average House Price by Top 10 Towns (₦)',
                                     labels={'town': 'Town', 'price': 'Average Price (₦)'},
                                     color='price', color_continuous_scale=px.colors.colors.sequential.Plasma)
