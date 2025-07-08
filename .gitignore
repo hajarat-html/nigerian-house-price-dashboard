@@ -1,0 +1,10 @@
+# Python virtual environment
+.venv/
+venv/
+__pycache__/
+
+# Trained model (can be regenerated)
+house_price_model.pkl
+
+# Streamlit specific cache/temp files
+.streamlit/
