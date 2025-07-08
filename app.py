@@ -689,11 +689,11 @@ elif page == "Geospatial Analysis":
         # Average Price by Top 10 Towns
         st.subheader("Average House Price by Top 10 Towns")
         avg_price_town_geo = data.groupby('town')['price'].mean().reset_index().sort_values(by='price', ascending=False).head(10)
-        # FIX IS ON THE NEXT LINE: Changed 'avg_town_price_geo' to 'avg_price_town_geo'
-        fig_town_price_geo = px.bar(avg_price_town_geo, x='town', y='price', # THIS LINE IS CORRECTED
+        # FIX IS ON THE NEXT LINE: Removed redundant '.colors'
+        fig_town_price_geo = px.bar(avg_price_town_geo, x='town', y='price',
                                     title='Average House Price by Top 10 Towns (₦)',
                                     labels={'town': 'Town', 'price': 'Average Price (₦)'},
-                                    color='price', color_continuous_scale=px.colors.colors.sequential.Plasma)
+                                    color='price', color_continuous_scale=px.colors.sequential.Plasma) # Corrected line
         st.plotly_chart(fig_town_price_geo, use_container_width=True)
         st.markdown("---")
     else:
